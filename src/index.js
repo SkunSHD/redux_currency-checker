@@ -6,6 +6,7 @@ import { AppContainer } from 'react-hot-loader'
 
 import App from './containers/App'
 import configureStore from './store/configureStore'
+import './styles/app.css' 
 
 const store = configureStore()
 
@@ -13,7 +14,9 @@ const store = configureStore()
 render(
   <Provider store={store}>
     <AppContainer>
-      <App />
+      <div className='app'>
+        <App />
+      </div>
     </AppContainer>
   </Provider>,
   document.getElementById('root')

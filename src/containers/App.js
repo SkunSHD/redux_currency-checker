@@ -6,11 +6,11 @@ import * as pageActions from '../actions/PageActions'
 
 class App extends Component {
   render() {
-    const { currency, value } = this.props.page
-     const { setCurrency } = this.props.pageActions
+    const { currency, value, fetching } = this.props.page
+     const { setCurrency, getCurrency } = this.props.pageActions
     
     return <div>
-      <Page value={value} currency={currency} setCurrency={setCurrency} />
+      <Page value={value} currency={currency} setCurrency={setCurrency} getCurrency={getCurrency} fetching={fetching} />
     </div>
   }
 }
