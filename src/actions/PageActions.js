@@ -1,7 +1,6 @@
 import {
   SET_CURRENCY,
-  GET_CURRENCY_REQUEST,
-  GET_CURRENCY_SUCCESS
+  GET_CURRENCY_REQUEST
 } from '../constants/Page'
 
 export function setCurrency(currency) {
@@ -21,11 +20,22 @@ export function getCurrency(currency) {
       payload: currency
     })
 
-    setTimeout(() => {
-      dispatch({
-        type: GET_CURRENCY_SUCCESS,
-        payload: ['UAH',2,3,4,5]
-      })
-    }, 2000)
+    var xhr = new XMLHttpRequest();
+    const params = 'date_req=' + encodeURIComponent('02/03/2016')
+
+    xhr.open('GET', 'http://www.cbr.ru/scripts/XML_daily.asp?' + params, true);
+    xhr.send();
+    if (xhr.status != 200) {
+      // обработать ошибку
+      alert( xhr.status + ': ' + xhr.statusText ); // пример вывода: 404: Not Found
+    } else {
+      // вывести результат
+      console.log(xhr.responseText)
+
+      // dispatch({
+      //   type: GET_CURRENCY_SUCCESS,
+      //   payload: xhr.responseText
+      // })
+    }
   }
 }

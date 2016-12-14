@@ -1,0 +1,15 @@
+{
+    "background_page" : "background.html", 
+    "content_scripts" : [
+        {
+            "js":[ "my.user.js" ], 
+            "matches":[ "http://*/*" ], 
+            "run_at":"document_end"  
+        }
+    ], 
+    "description" : "Extention for the cross-domain allowance", 
+    "name" : "CDA", 
+    "permissions" : [ "http://*/*", "unlimitedStorage"],
+    "manifest_version" : 2,
+    "version" : "1.0.0"
+}
